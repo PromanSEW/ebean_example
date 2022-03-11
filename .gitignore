@@ -1,0 +1,16 @@
+logs
+project/project
+project/target
+target
+tmp
+.history
+/null
+/out
+/RUNNING_PID
+Thumbs.db
+.DS_Store
+.buildpath
+.tmpBin
+.sbtserver
+.bsp
+.idea
