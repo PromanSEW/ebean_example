@@ -29,7 +29,7 @@ Docker / version := sys.env.getOrElse("BUILD_NUMBER", "0")
 Docker / daemonUserUid  := None
 Docker / daemonUser := "daemon"
 
-dockerExposedPorts := Seq(9000)
+dockerExposedPorts := Seq(80, 9000)
 dockerBaseImage := "openjdk:11.0.14.1-jre-slim"
 dockerRepository := sys.env.get("promansew")
 dockerUpdateLatest := true
