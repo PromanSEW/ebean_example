@@ -4,7 +4,7 @@ version := "release"
 
 lazy val root = (project in file(".")).enablePlugins(PlayJava, PlayEbean)
 
-//val ebeanVersion = "13.17.3"
+//val ebeanVersion = "13.22.0"
 val ebeanVersion = "13.25.0" // sync with project/plugins.sbt
 val ebeanJakarta = ebeanVersion + "-jakarta"
 
