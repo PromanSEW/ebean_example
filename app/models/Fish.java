@@ -2,15 +2,12 @@ package models;
 
 import io.ebean.Model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 @Entity
-@Table(name = "fishes")
 public class Fish extends Model {
-
 	@Id
 	public int id;
 	@Column(nullable = false)

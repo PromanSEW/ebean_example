@@ -1,36 +1,25 @@
-import com.typesafe.sbt.packager.docker.DockerChmodType
-import com.typesafe.sbt.packager.docker.DockerPermissionStrategy
-
 name := "play-ebean-example"
 
 version := "release"
 
 lazy val root = (project in file(".")).enablePlugins(PlayJava, PlayEbean)
 
-val ebeanVersion = "13.6.0"
+//val ebeanVersion = "13.17.3"
+val ebeanVersion = "13.25.0" // sync with project/plugins.sbt
+val ebeanJakarta = ebeanVersion + "-jakarta"
 
-scalaVersion := "2.13.8"
+//scalaVersion := "2.13.8"
+scalaVersion := "3.3.1"
 
 libraryDependencies ++= Seq(evolutions, guice, javaJdbc)
 
 libraryDependencies ++= Seq(
-//"org.postgresql" % "postgresql" % "42.3.4"
-  "com.h2database" % "h2" % "2.1.212"
+//"org.postgresql" % "postgresql" % "42.6.0"
+  "com.h2database" % "h2" % "2.1.214"
 )
 
 dependencyOverrides ++= Seq(
-  "io.ebean" % "ebean" % ebeanVersion,
+  "io.ebean" % "ebean" % ebeanJakarta,
   "io.ebean" % "ebean-agent" % ebeanVersion,
-  "io.ebean" % "ebean-ddl-generator" % ebeanVersion
+  "io.ebean" % "ebean-ddl-generator" % ebeanJakarta
 )
-
-Docker / maintainer := "promansew@gmail.com"
-Docker / packageName := "play-ebean-example"
-Docker / version := "latest"
-
-dockerExposedPorts := Seq(80, 9000)
-dockerBaseImage := "openjdk:11.0.15-jre-slim"
-dockerRepository := Some("promansew")
-dockerUpdateLatest := true
-dockerChmodType := DockerChmodType.UserGroupWriteExecute
-dockerPermissionStrategy := DockerPermissionStrategy.CopyChown
